@@ -2,14 +2,47 @@ import React from 'react'
 
 export default function Form(props){
     const {
-        test1,
-        test2,
+        values,
+        errors,
+        change,
+        submit,
     } = props
+
+
     return(
         <div>
-            <h2>Form props:</h2>
-            <p>{test1}</p>
-            <p>{test2}</p>
+            <form>
+                <h2>This is the form</h2>
+                <label>Name&nbsp;
+                    <input
+                        name='name'
+                        type='text'
+                        onChange={change}
+                    />
+                </label>
+                <label>Email&nbsp;
+                    <input
+                        name='email'
+                        type='text'
+                        onChange={change}
+                    />
+                </label>
+                <label>Password&nbsp;
+                    <input
+                        name='password'
+                        type='text'
+                        onChange={change}
+                    />
+                </label>
+                <label>Terms of Service&nbsp;
+                    <input
+                        name='tos'
+                        type='checkbox'
+                        onChange={change}
+                    />
+                </label>
+                <button>submit</button>
+            </form>
         </div>
     )
 }
