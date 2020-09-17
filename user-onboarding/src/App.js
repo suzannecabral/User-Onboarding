@@ -27,12 +27,10 @@ function App() {
   const [formErrors, setFormErrors] = useState(initialFormErrors)   // object
   
   //////////////// EVENT HANDLERS ////////////////
-  const inputChange = evt => {
+  const appInputChange = (name, value) => {
     // send to formValues state
-    const { name, value } = evt.target
-  
     setFormValues({...formValues, [name]:value})
-  
+    // console.log( "appInputChange fired" )
   }
 
   const formSubmit = evt => {
@@ -47,7 +45,7 @@ function App() {
       <Form 
         values={formValues}
         errors={formErrors}
-        change={inputChange}
+        change={appInputChange}
         submit={formSubmit}
       />
     </div>

@@ -9,6 +9,13 @@ export default function Form(props){
     } = props
 
 
+    const formChange = evt => {
+        // console.log("formChange fired")
+        const { name, value, type, checked } = evt.target
+        change (name, value)
+    }
+
+
     return(
         <div>
             <form>
@@ -17,28 +24,28 @@ export default function Form(props){
                     <input
                         name='name'
                         type='text'
-                        onChange={change}
+                        onChange={formChange}
                     />
                 </label>
                 <label>Email&nbsp;
                     <input
                         name='email'
                         type='text'
-                        onChange={change}
+                        onChange={formChange}
                     />
                 </label>
                 <label>Password&nbsp;
                     <input
                         name='password'
                         type='text'
-                        onChange={change}
+                        onChange={formChange}
                     />
                 </label>
                 <label>Terms of Service&nbsp;
                     <input
                         name='tos'
                         type='checkbox'
-                        onChange={change}
+                        onChange={formChange}
                     />
                 </label>
                 <button>submit</button>
