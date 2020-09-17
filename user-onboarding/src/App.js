@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import Form from './Form'
+import schema from './formSchema'
+import * as yup from 'yup'
 
 //////////////// INITIAL STATES ////////////////
 const initialFormValues = {
@@ -26,10 +28,20 @@ function App() {
   const [formValues, setFormValues] = useState(initialFormValues)  // object
   const [formErrors, setFormErrors] = useState(initialFormErrors)   // object
   
+  //////////////// HELPERS ////////////////
+  const validate = (name, value) => {
+    yup
+      .reach(schema, name)
+      .validate(value)
+  }
+ 
+ 
   //////////////// EVENT HANDLERS ////////////////
   const appInputChange = (name, value) => {
     // send to formValues state
+    validate(name, value)
     setFormValues({...formValues, [name]:value})
+  
     // console.log( "appInputChange fired" )
   }
 
@@ -41,7 +53,7 @@ function App() {
       tos: formValues.tos,
     }
     //Next step: post to server
-    console.log('Axios will post this:', newUserData)
+    console.log('User submitted the form:', newUserData)
   }
   
   return (
