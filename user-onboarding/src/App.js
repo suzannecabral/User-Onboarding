@@ -21,20 +21,24 @@ const initialFormErrors = {
   tos: '',
 }
 
-
-
 function App() {
   //////////////// STATES ////////////////
   const [formValues, setFormValues] = useState(initialFormValues)  // object
   const [formErrors, setFormErrors] = useState(initialFormErrors)   // object
   
   //////////////// HELPERS ////////////////
+
+
   const validate = (name, value) => {
     yup
       .reach(schema, name)
       .validate(value)
+      .then()
+      .catch(err => {
+        // debugger
+        console.log(err)
+      })
   }
- 
  
   //////////////// EVENT HANDLERS ////////////////
   const appInputChange = (name, value) => {

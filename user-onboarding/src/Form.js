@@ -13,7 +13,7 @@ export default function Form(props){
         // console.log("formChange fired")
         const { name, value, type, checked } = evt.target
         const valueToUse = type === 'checkbox' ? checked : value
-    change(name, valueToUse)
+        // change(name, valueToUse)
         change (name, valueToUse)
     }
 
