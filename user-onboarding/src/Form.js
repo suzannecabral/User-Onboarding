@@ -17,10 +17,15 @@ export default function Form(props){
         change (name, valueToUse)
     }
 
+    const formSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    }
+
 
     return(
         <div>
-            <form>
+            <form onSubmit={formSubmit}>
                 <h2>This is the form</h2>
                 <label>Name&nbsp;
                     <input

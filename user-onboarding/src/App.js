@@ -33,8 +33,15 @@ function App() {
     // console.log( "appInputChange fired" )
   }
 
-  const formSubmit = evt => {
-
+  const appFormSubmit = () => {
+    const newUserData = {
+      name: formValues.name.trim(),
+      email: formValues.email.trim(),
+      password: formValues.password.trim(),
+      tos: formValues.tos,
+    }
+    //Next step: post to server
+    console.log('Axios will post this:', newUserData)
   }
   
   return (
@@ -46,7 +53,7 @@ function App() {
         values={formValues}
         errors={formErrors}
         change={appInputChange}
-        submit={formSubmit}
+        submit={appFormSubmit}
       />
     </div>
   );
