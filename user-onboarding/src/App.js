@@ -33,10 +33,13 @@ function App() {
     yup
       .reach(schema, name)
       .validate(value)
-      .then()
+      .then(valid => {
+        setFormErrors({...formErrors, [name]: ""})
+      })
       .catch(err => {
         // debugger
-        console.log(err)
+        setFormErrors({...formErrors,[name]: err.errors[0]})
+        // console.log(err)
       })
   }
  
