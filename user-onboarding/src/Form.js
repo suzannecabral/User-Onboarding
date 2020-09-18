@@ -47,7 +47,7 @@ export default function Form(props){
 
     return(
         <div>
-            <form onSubmit={formSubmit}>
+            <form onSubmit={formSubmit} id="userForm">
                 <h2>Sign up:</h2>
                 <div className="errorBox errorStrings">
                     <div>{errors.name}</div>

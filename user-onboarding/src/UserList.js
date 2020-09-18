@@ -10,10 +10,11 @@ export default function UserList(props){
 
                 {
                     users.map(user =>{
+                        console.log('user id: ', user.id)
                         return(
                             <UserCard
                                 user={user}
-                                key={0}
+                                key={user.id}
                             
                             />
                         )

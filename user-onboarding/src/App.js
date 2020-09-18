@@ -3,6 +3,7 @@ import './App.css';
 import Form from './Form'
 import schema from './formSchema'
 import * as yup from 'yup'
+import axios from 'axios'
 
 //////////////// INITIAL STATES ////////////////
 const initialFormValues = {
@@ -32,7 +33,22 @@ function App() {
   
   //////////////// HELPERS ////////////////
   const postNewUser = newUser => {
-    setUserList(...userList,newUser)
+
+    axios.post('https://reqres.in/api/users',newUser)
+      .then(res => {
+        console.log(res.data)
+        // setUserList([...userList, res.data])
+        
+      })
+      .catch(err => {
+        debugger
+        console.log(err)
+      })
+      .finally(()=>{
+        setFormValues(initialFormValues)
+        document.getElementById("userForm").reset()
+      })
+
 
   }
 
@@ -67,8 +83,14 @@ function App() {
       tos: formValues.tos,
     }
     //Next step: post to server
+    const newUserJson = JSON.stringify(newUser)
     setUserList([...userList,newUser])
+
     console.log('User submitted the form:', newUser)
+    
+    postNewUser(newUser)
+
+
   }
   
   //////////////// SIDE EFFECTS ////////////////
