@@ -4,6 +4,7 @@ export default function Form(props){
     const {
         change,
         submit,
+        errors
     } = props
 
 
@@ -25,9 +26,11 @@ export default function Form(props){
         <div>
             <form onSubmit={formSubmit}>
                 <h2>Sign up:</h2>
-                <div className="errorBox">
-                    <p className="errorStrings"></p>
-                    &nbsp;
+                <div className="errorBox errorStrings">
+                    <div>{errors.name}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                    <div>{errors.tos}</div>
                 </div>
                 <label>Name&nbsp;
                     <input

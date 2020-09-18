@@ -71,6 +71,7 @@ function App() {
       <Form 
         change={appInputChange}
         submit={appFormSubmit}
+        errors={formErrors}
       />
     </div>
   );
