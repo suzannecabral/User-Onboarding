@@ -14,7 +14,7 @@ export default function UserList(props){
             <p>Created At: {props.user.createdAt ? props.user.createdAt : "(not created)"}</p>
 
             {/* <div className="userCardJson">
-                <pre>{user}</pre>
+                <pre>{props.user}</pre>
             </div> */}
         </div>
     )
