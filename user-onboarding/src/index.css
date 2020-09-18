@@ -44,3 +44,26 @@ button {
   color:Red;
   font-weight:bold;
 }
+
+
+.userList{
+  width:40%;
+  max-width:30rem;
+  margin:2rem auto;
+  text-align:left;
+}
+
+.userList * {
+  margin:0;
+  padding:0;
+}
+
+.userList h3 {
+  font-size:.8rem;
+  margin-top:.9rem;
+}
+
+.userList p {
+  font-size: 0.8rem;
+  line-height:1.5;
+}

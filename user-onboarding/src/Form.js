@@ -1,4 +1,5 @@
 import React from 'react'
+import UserList from './UserList'
 
 export default function Form(props){
     const {
@@ -9,6 +10,26 @@ export default function Form(props){
         users,
     } = props
 
+    const fakeUsers=[
+        {
+            name: 'Katrina',
+            email: 'Katrina@gmail.com',
+            password:'amoebajelly',
+            tos: true,
+          },
+          {
+            name: 'Joseph',
+            email: 'joe@hotmail.com',
+            password:'corgibutts123',
+            tos: true,
+          },
+          {
+            name: 'Kelly',
+            email: 'Kelly@kellyswift.com',
+            password:'princesscornflakes',
+            tos: true,
+          },
+    ]
 
     const formChange = evt => {
         // console.log("formChange fired")
@@ -63,10 +84,11 @@ export default function Form(props){
                     />
                 </label>
                 <button disabled={disabled}>submit</button>
-
-                {/* <h2>Users:</h2>
-                <div>{users}</div> */}
             </form>
+            <UserList 
+                // users={users}
+                users={fakeUsers}
+            />
         </div>
     )
 }
