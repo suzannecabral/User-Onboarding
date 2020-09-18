@@ -6,6 +6,7 @@ export default function Form(props){
         submit,
         errors,
         disabled,
+        users,
     } = props
 
 
@@ -62,6 +63,9 @@ export default function Form(props){
                     />
                 </label>
                 <button disabled={disabled}>submit</button>
+
+                {/* <h2>Users:</h2>
+                <div>{users}</div> */}
             </form>
         </div>
     )

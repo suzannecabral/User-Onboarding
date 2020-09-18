@@ -21,15 +21,20 @@ const initialFormErrors = {
   tos: '',
 }
 const initialDisabled = true
+const initialUserList = []
 
 function App() {
   //////////////// STATES ////////////////
   const [formValues, setFormValues] = useState(initialFormValues)  // object
   const [formErrors, setFormErrors] = useState(initialFormErrors)   // object
   const [disabled, setDisabled ] = useState(initialDisabled) //boolean
-
+  const [userList, setUserList] = useState(initialUserList) //array of objects
   
   //////////////// HELPERS ////////////////
+  const postNewUser = newUser => {
+    setUserList(...userList,newUser)
+
+  }
 
   const validate = (name, value) => {
     yup
@@ -55,14 +60,15 @@ function App() {
   }
 
   const appFormSubmit = () => {
-    const newUserData = {
+    const newUser = {
       name: formValues.name.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
       tos: formValues.tos,
     }
     //Next step: post to server
-    console.log('User submitted the form:', newUserData)
+    setUserList([...userList,newUser])
+    console.log('User submitted the form:', newUser)
   }
   
   //////////////// SIDE EFFECTS ////////////////
@@ -85,6 +91,7 @@ function App() {
         submit={appFormSubmit}
         errors={formErrors}
         disabled={disabled}
+        users={userList}
       />
     </div>
   );
