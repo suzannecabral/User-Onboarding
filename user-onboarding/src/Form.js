@@ -87,7 +87,7 @@ export default function Form(props){
             </form>
             <UserList 
                 // users={users}
-                users={fakeUsers}
+                users={users}
             />
         </div>
     )

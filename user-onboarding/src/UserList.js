@@ -9,10 +9,12 @@ export default function UserList(props){
              <h2>Users:</h2>
 
                 {
-                    users.map(user=>{
+                    users.map(user =>{
                         return(
                             <UserCard
                                 user={user}
+                                key={0}
+                            
                             />
                         )
                     })
