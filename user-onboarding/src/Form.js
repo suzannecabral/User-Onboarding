@@ -4,7 +4,8 @@ export default function Form(props){
     const {
         change,
         submit,
-        errors
+        errors,
+        disabled,
     } = props
 
 
@@ -60,7 +61,7 @@ export default function Form(props){
                         onChange={formChange}
                     />
                 </label>
-                <button>submit</button>
+                <button disabled={disabled}>submit</button>
             </form>
         </div>
     )

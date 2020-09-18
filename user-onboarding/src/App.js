@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './Form'
 import schema from './formSchema'
@@ -20,14 +20,16 @@ const initialFormErrors = {
   password:'',
   tos: '',
 }
+const initialDisabled = true
 
 function App() {
   //////////////// STATES ////////////////
   const [formValues, setFormValues] = useState(initialFormValues)  // object
   const [formErrors, setFormErrors] = useState(initialFormErrors)   // object
+  const [disabled, setDisabled ] = useState(initialDisabled) //boolean
+
   
   //////////////// HELPERS ////////////////
-
 
   const validate = (name, value) => {
     yup
@@ -63,6 +65,16 @@ function App() {
     console.log('User submitted the form:', newUserData)
   }
   
+  //////////////// SIDE EFFECTS ////////////////
+  useEffect(() => {
+    schema.isValid(formValues)
+      .then(valid => {
+        setDisabled(!valid)
+      })
+  }, [formValues])
+
+
+
   return (
     <div className="App">
       <header>
@@ -72,6 +84,7 @@ function App() {
         change={appInputChange}
         submit={appFormSubmit}
         errors={formErrors}
+        disabled={disabled}
       />
     </div>
   );
