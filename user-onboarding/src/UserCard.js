@@ -12,6 +12,10 @@ export default function UserList(props){
             <p>TOS: {props.user.tos ? "Accepted" : "Rejected"}</p>
             <p>ID: {props.user.id ? props.user.id : "(none)"}</p>
             <p>Created At: {props.user.createdAt ? props.user.createdAt : "(not created)"}</p>
+
+            {/* <div className="userCardJson">
+                <pre>{user}</pre>
+            </div> */}
         </div>
     )
 }

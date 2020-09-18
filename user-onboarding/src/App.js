@@ -36,8 +36,8 @@ function App() {
 
     axios.post('https://reqres.in/api/users',newUser)
       .then(res => {
-        console.log(res.data)
-        // setUserList([...userList, res.data])
+        // console.log(res.data)
+        setUserList([...userList, res.data])
         
       })
       .catch(err => {
@@ -84,10 +84,10 @@ function App() {
     }
     //Next step: post to server
     const newUserJson = JSON.stringify(newUser)
-    setUserList([...userList,newUser])
+    // setUserList([...userList,newUser])
 
     console.log('User submitted the form:', newUser)
-    
+
     postNewUser(newUser)
 
 
