@@ -2,8 +2,6 @@ import React from 'react'
 
 export default function Form(props){
     const {
-        values,
-        errors,
         change,
         submit,
     } = props
@@ -26,7 +24,11 @@ export default function Form(props){
     return(
         <div>
             <form onSubmit={formSubmit}>
-                <h2>This is the form</h2>
+                <h2>Sign up:</h2>
+                <div className="errorBox">
+                    <p className="errorStrings"></p>
+                    &nbsp;
+                </div>
                 <label>Name&nbsp;
                     <input
                         name='name'

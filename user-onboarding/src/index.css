@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h1{
+  margin:0;
+  padding:.5rem 0 .5rem 0;
+}
+h2{
+  margin:0;
+  padding:0 0 .5rem 0;
+  font-weight:normal;
+}
+label {
+  display:block;
+  margin:0 0 0.8rem 0;
+  padding:.5rem 0 0 0;
+}
+input[type=text] {
+  height:1.5rem;
+  width:11rem;
+  margin:0 0 0 .4rem;
+}
+button {
+  padding:.3rem .5rem;
+}
+
+.errorBox {
+  width:50%;
+  margin:0 auto .8rem auto;
+  /* border: 1px solid red; */
+}
+
+.errorStrings {
+  color:Red;
+  font-weight:bold;
+}

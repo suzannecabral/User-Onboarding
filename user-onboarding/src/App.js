@@ -66,11 +66,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>App goes here</h1>
+        <h1>User Onboarding</h1>
       </header>
       <Form 
-        values={formValues}
-        errors={formErrors}
         change={appInputChange}
         submit={appFormSubmit}
       />
